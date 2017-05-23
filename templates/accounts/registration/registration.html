@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+  Registration
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-offset-4 col-md-8">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save" class="btn btn-success"/>
+        </form>
+    </div>
+</div>
+{% endblock%}
