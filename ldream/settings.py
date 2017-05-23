@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ldream.middleware.LoginRequireMiddleware',
 ]
 
 ROOT_URLCONF = 'ldream.urls'
@@ -132,3 +134,17 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = '/accounts/login/'
+
+#LOGOUT_REDIRECT_URL = '/accounts/logout/'
+
+LOGIN_EXEMPT_URLS = {
+    r'^accounts/logout/$',
+    r'^accounts/registration/$',
+    #r'^accounts/password_reset/$',
+    #r'^accounts/password_reset_done/$',
+    #r'^accounts/password_reset_confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    #r'^accounts/password_reset_complete/$',
+    #r'^accounts/validate_username/$',
+}

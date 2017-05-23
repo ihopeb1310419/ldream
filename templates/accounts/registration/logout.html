@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+<h1>Log in again:</h1>
+<a href="{% url 'accounts:login' %}">Log in</a>
+{% endblock%}
